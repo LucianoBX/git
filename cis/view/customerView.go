@@ -94,7 +94,8 @@ func (cv *customerView) mainMenu() {
 		fmt.Println("修改客户")
 
 	case "3" :
-		fmt.Println("删除客户")
+		cv.delete()
+	//	fmt.Println("删除客户")
 
 	case "4" :
 		// 客户列表显示
@@ -102,6 +103,7 @@ func (cv *customerView) mainMenu() {
 
 	case "5" :
 		fmt.Println("退    出")
+		fmt.Println("你已经退出客户管理软件")
 		cv.loop = false
 	default :
 	fmt.Println("输入有误，请重新输入(1-5):")
@@ -112,7 +114,6 @@ func (cv *customerView) mainMenu() {
 		break
 	}
 
-	fmt.Println("你已经退出客户管理软件")
 	}
 }
 
@@ -120,7 +121,7 @@ func (cv *customerView) mainMenu() {
 // 输入id，删除相应客户
 func (cv *customerView) delete() {
 	fmt.Println("---------------删除客户-------------------")
-	fmt.Println("请选择待删除客户编号（-1推出）：1")
+	fmt.Println("请选择待删除客户编号（-1推出）：")
 	id := -1
 	fmt.Scanln(&id)
 	
@@ -142,11 +143,11 @@ func (cv *customerView) delete() {
 			fmt.Println("---------------客户Id不存在-------------------")
 
 		}
+	} else if ( choice == "N" || choice == "n" ) {
+		fmt.Println("---------------取消删除-------------------")
+	} else {
+		fmt.Println("输入错误")
 	}
-
-
-
-
 }
 
 
